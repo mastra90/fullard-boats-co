@@ -15,20 +15,17 @@ const HomePage = () => {
       sx={{
         backgroundImage: `url(${homeBg})`,
         backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         height: '100vh',
         width: '100%',
         position: 'absolute',
-        top: 0,
-        left: 0,
       }}
     >
       {/* Taglines */}
       <Box
         sx={{
           position: 'absolute',
-          top: isMobile ? '15%' : '20%',
+          top: isMobile ? '4rem' : '5rem',
           left: '1em',
           fontSize: {
             xs: '2em',
@@ -39,11 +36,9 @@ const HomePage = () => {
         }}
       >
         <Typography
-          variant="h1"
           sx={{
             fontSize: 'inherit',
-            lineHeight: 0.9,
-            margin: 0,
+            mb: -4,
             opacity: 0,
             animation: 'fadeIn 200ms ease-in 300ms forwards',
             '@keyframes fadeIn': {
@@ -55,13 +50,11 @@ const HomePage = () => {
         >
           Modern,
         </Typography>
-        
+
         <Typography
-          variant="h1"
           sx={{
             fontSize: 'inherit',
-            lineHeight: 0.9,
-            margin: 0,
+            mb: -2,
             opacity: 0,
             animation: 'fadeIn 200ms ease-in 600ms forwards',
           }}
@@ -69,13 +62,11 @@ const HomePage = () => {
         >
           Traditional,
         </Typography>
-        
+
         <Typography
-          variant="h1"
           sx={{
             fontSize: 'inherit',
-            lineHeight: 0.9,
-            margin: 0,
+            mb: -2,
             opacity: 0,
             animation: 'fadeIn 200ms ease-in 900ms forwards',
           }}
@@ -83,13 +74,10 @@ const HomePage = () => {
         >
           Boat Building.
         </Typography>
-        
+
         {/* "Check out our services" link */}
         <Box
           sx={{
-            fontSize: '0.3em',
-            marginTop: '3em',
-            marginLeft: '0.2em',
             opacity: 0,
             animation: 'slideInFromLeft 300ms ease-in 1500ms forwards',
             '@keyframes slideInFromLeft': {
@@ -109,15 +97,14 @@ const HomePage = () => {
             component={RouterLink}
             to="/our-services"
             sx={{
-              display: 'flex',
               color: 'text.primary',
               textDecoration: 'none',
               '&:hover': {
                 textDecoration: 'underline',
-              }
+              },
             }}
           >
-            <Typography>Check out our services! &gt;</Typography>
+            <Typography sx={{ fontSize: 28, mt: 4 }}>Check out our services!</Typography>
           </Link>
         </Box>
       </Box>
@@ -133,7 +120,7 @@ const HomePage = () => {
             sm: '350px',
             md: '550px',
           },
-          position: { 
+          position: {
             xs: 'absolute',
             sm: 'absolute',
           },
@@ -173,11 +160,11 @@ const HomePage = () => {
         <Typography variant="h5" sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
           <PhoneIcon sx={{ mr: 1 }} /> 0434 819 553
         </Typography>
-        
+
         <Typography variant="h5" sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
           <EmailIcon sx={{ mr: 1 }} /> office@fullardboatco.com
         </Typography>
-        
+
         <Link
           href="https://www.facebook.com/FullardBoats"
           target="_blank"
@@ -199,8 +186,8 @@ const HomePage = () => {
         <Box
           sx={{
             position: 'absolute',
-            bottom: '4em',
-            right: '5.2em',
+            bottom: '2em',
+            right: '2em',
             fontSize: {
               md: '1.2em',
               lg: '1.5em',
@@ -210,14 +197,14 @@ const HomePage = () => {
           }}
           className="home-serivce-locations-container"
         >
-          <Typography variant="h5" sx={{ mb: 1 }}>Opening Hours</Typography>
+          <Typography variant="h3" sx={{ mb: 1 }}>Opening Hours</Typography>
           <Typography sx={{ mb: 1 }}>8:00am - 4:30pm</Typography>
           <Typography sx={{ mb: 1 }}>Monday - Friday</Typography>
           <Typography sx={{ fontStyle: 'italic', fontSize: '0.8em', mb: 2 }}>
             *Excluding public holidays
           </Typography>
-          
-          <Typography variant="h5" sx={{ mb: 1 }}>Service Locations</Typography>
+
+          <Typography variant="h3" sx={{ mb: 1 }}>Service Locations</Typography>
           <Box component="ul" sx={{ pl: 2, m: 0 }}>
             <Typography component="li">Metung, VIC</Typography>
             <Typography component="li">Bairnsdale, VIC</Typography>
