@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu as MenuIcon, Construction, ContactPage, Person, Sailing } from '@mui/icons-material';
-import { AppBar, Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Tooltip, useMediaQuery, useTheme, } from "@mui/material";
+import { Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Tooltip, useMediaQuery, useTheme, } from "@mui/material";
 
 const NavBar = () => {
   const theme = useTheme();
