@@ -1,16 +1,16 @@
-import { Card, Box } from '@mui/material';
-import OurServicesCard from '../components/OurServicesCard';
-import FaqCard from '../components/FaqCard';
+import { Card, Box } from "@mui/material";
+import OurServicesCard from "../components/OurServicesCard";
+import FaqCard from "../components/FaqCard";
 
 const cards = [
   {
     content: <OurServicesCard />,
-    width: 400
+    width: 400,
   },
   {
     content: <FaqCard />,
-    width: 800
-  }
+    width: 800,
+  },
 ];
 
 const OurServicesPage = () => {
@@ -19,9 +19,9 @@ const OurServicesPage = () => {
       sx={{
         m: 2,
         gap: 2,
-        display: 'flex',
-        justifyContent: 'center',
-        flexDirection: { xs: 'column', md: 'row' }
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: { xs: "column", md: "row" },
       }}
     >
       {cards.map((cards, key) => (
@@ -30,9 +30,9 @@ const OurServicesPage = () => {
           sx={{
             p: 2,
             height: 800,
-            bgcolor: 'grey',
-            width: { xs: '100%', md: cards.width },
-          }}>
+            width: { xs: "100%", md: cards.width },
+          }}
+        >
           {cards.content}
         </Card>
       ))}
