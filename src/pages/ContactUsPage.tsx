@@ -1,12 +1,12 @@
 import React from 'react';
 import { Box, Typography, Container, Grid } from '@mui/material';
-import ContactFormCard from '../Components/ContactFormCard';
-import ContactDetailsCard from '../Components/ContactDetailsCard';
+import ContactFormCard from '../components/ContactFormCard';
+import ContactDetailsCard from '../components/ContactDetailsCard';
 
 const ContactPage: React.FC = () => {
   return (
     <Box>
-      <Box className="page-heading" sx={{ 
+      <Box className="page-heading" sx={{
         display: { xs: 'block', sm: 'flex' },
         justifyContent: 'center',
         alignItems: 'center',
@@ -33,12 +33,8 @@ const ContactPage: React.FC = () => {
           flexDirection: { xs: 'column', md: 'row' },
           alignItems: 'center'
         }}>
-          <Grid item xs={12} md={6}>
-            <ContactDetailsCard />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <ContactFormCard />
-          </Grid>
+          <ContactDetailsCard />
+          <ContactFormCard />
         </Grid>
       </Container>
     </Box>

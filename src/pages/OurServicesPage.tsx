@@ -1,6 +1,6 @@
 import { Card, Box } from '@mui/material';
-import OurServicesCard from '../Components/OurServicesCard';
-import FaqCard from '../Components/FaqCard';
+import OurServicesCard from '../components/OurServicesCard';
+import FaqCard from '../components/FaqCard';
 
 const cards = [
   {

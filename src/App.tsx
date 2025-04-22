@@ -2,11 +2,11 @@ import {
   Route,
   Routes,
 } from 'react-router-dom';
-import HomePage from './Pages/HomePage';
-import AboutUsPage from './Pages/AboutUs';
-import OurServicesPage from './Pages/OurServices';
-import ContactPage from './Pages/ContactPage';
-import NavBar from './Components/NavBar';
+import NavBar from './components/NavBar';
+import HomePage from './pages/HomePage';
+import AboutUsPage from './pages/AboutUsPage';
+import OurServicesPage from './pages/OurServicesPage';
+import ContactPage from './pages/ContactUsPage';
 
 
 function App() {

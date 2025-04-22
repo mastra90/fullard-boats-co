@@ -1,15 +1,14 @@
 import React from 'react';
-import { Box, Typography, Container, Grid, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Typography, Container, Grid, useTheme } from '@mui/material';
 
 // Import headshot images - adjust the paths as needed based on your assets folder
 import WillImage from '../assets/Will.png';
 import KellyImage from '../assets/Kelly.png';
 import AidenImage from '../assets/Aiden.png';
-import TeamMembersCard from '../Components/TeamMembersCard';
+import TeamMembersCard from '../components/TeamMembersCard';
 
 const AboutUsPage: React.FC = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Box>
@@ -72,30 +71,24 @@ const AboutUsPage: React.FC = () => {
           alignItems: 'center',
           mt: { xs: -4, md: -7 }
         }}>
-          <Grid item xs={12} md={4}>
-            <TeamMembersCard
-              name="Will Fullard"
-              color="will"
-              headshot={WillImage}
-              bio="Will is a qualified shipwright who began working in the boat building industry in 2007. He has worked as a shipwright on various projects from the restoration of a traditional timber tall ship, to modern composite new build yacht tenders both here in Australia and in the UK."
-            />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <TeamMembersCard
-              name="Kelly Fullard"
-              color="kelly"
-              headshot={KellyImage}
-              bio="Kelly is the Operations Manager. She plays the 'behind the scenes' role and handles everything from administration to accounts and much more."
-            />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <TeamMembersCard
-              name="Aidan Kell"
-              color="aiden"
-              headshot={AidenImage}
-              bio="Aidan joined the Fullard Boat Co family as a school-based apprentice in 2021, whilst also completing his VCE. He has now finished his VCE and is a full time apprentice. He has a fantastic work ethic and we look forward to watching him grow and develop throughout the rest of his apprenticeship and beyond."
-            />
-          </Grid>
+          <TeamMembersCard
+            name="Will Fullard"
+            color="will"
+            headshot={WillImage}
+            bio="Will is a qualified shipwright who began working in the boat building industry in 2007. He has worked as a shipwright on various projects from the restoration of a traditional timber tall ship, to modern composite new build yacht tenders both here in Australia and in the UK."
+          />
+          <TeamMembersCard
+            name="Kelly Fullard"
+            color="kelly"
+            headshot={KellyImage}
+            bio="Kelly is the Operations Manager. She plays the 'behind the scenes' role and handles everything from administration to accounts and much more."
+          />
+          <TeamMembersCard
+            name="Aidan Kell"
+            color="aiden"
+            headshot={AidenImage}
+            bio="Aidan joined the Fullard Boat Co family as a school-based apprentice in 2021, whilst also completing his VCE. He has now finished his VCE and is a full time apprentice. He has a fantastic work ethic and we look forward to watching him grow and develop throughout the rest of his apprenticeship and beyond."
+          />
         </Grid>
       </Container>
     </Box>
