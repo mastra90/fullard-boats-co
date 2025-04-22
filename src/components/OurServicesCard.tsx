@@ -1,7 +1,6 @@
-import { Box, List, ListItem } from '@mui/material';
+import { Box, List, ListItem } from "@mui/material";
 
 const OurServicesCard = () => {
-
   const services = [
     "Traditional Timber Shipwrighting",
     "Fibreglass Repairs",
@@ -13,7 +12,7 @@ const OurServicesCard = () => {
     "Teak Decking Restoration, Replacement and Rebuilds",
     "Antifouling and Maintenance",
     "Restorations",
-    "Complete Boat Management"
+    "Complete Boat Management",
   ];
   return (
     <Box>

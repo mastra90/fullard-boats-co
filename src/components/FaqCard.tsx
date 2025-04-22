@@ -1,11 +1,7 @@
-import { Box } from '@mui/material';
+import { Box } from "@mui/material";
 
 const FaqCard = () => {
-  return (
-    <Box>
-      FAQ
-    </Box>
-  );
+  return <Box>FAQ</Box>;
 };
 
 export default FaqCard;

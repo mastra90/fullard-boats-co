@@ -37,7 +37,7 @@ const theme = createTheme({
     h2: {},
     h3: {},
     h4: {},
-    h5: {},
+    h5: { fontWeight: 600 },
     h6: {},
     body1: {},
     body2: {},

@@ -1,6 +1,7 @@
 import { Card, Box } from "@mui/material";
 import OurServicesCard from "../components/OurServicesCard";
 import FaqCard from "../components/FaqCard";
+import PageHeaders from "../components/PageHeaders";
 
 const cards = [
   {
@@ -15,28 +16,34 @@ const cards = [
 
 const OurServicesPage = () => {
   return (
-    <Box
-      sx={{
-        m: 2,
-        gap: 2,
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: { xs: "column", md: "row" },
-      }}
-    >
-      {cards.map((cards, key) => (
-        <Card
-          key={key}
-          sx={{
-            p: 2,
-            height: 800,
-            width: { xs: "100%", md: cards.width },
-          }}
-        >
-          {cards.content}
-        </Card>
-      ))}
-    </Box>
+    <>
+      <PageHeaders
+        title="Hands-On Expertise:"
+        subtitle="Where Our Services Exceed Your Aspirations."
+      />
+      <Box
+        sx={{
+          m: 2,
+          gap: 2,
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: { xs: "column", md: "row" },
+        }}
+      >
+        {cards.map((cards, key) => (
+          <Card
+            key={key}
+            sx={{
+              p: 2,
+              height: 800,
+              width: { xs: "100%", md: cards.width },
+            }}
+          >
+            {cards.content}
+          </Card>
+        ))}
+      </Box>
+    </>
   );
 };
 

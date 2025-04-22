@@ -1,43 +1,37 @@
-import React from 'react';
-import { Box, Typography, Container, Grid } from '@mui/material';
-import ContactFormCard from '../components/ContactFormCard';
-import ContactDetailsCard from '../components/ContactDetailsCard';
+import { Card, Box } from "@mui/material";
+import PageHeaders from "../components/PageHeaders";
+import ContactDetailsCard from "../components/ContactDetailsCard";
+import ContactFormCard from "../components/ContactFormCard";
 
-const ContactPage: React.FC = () => {
+const cards = [<ContactDetailsCard />, <ContactFormCard />];
+
+const ContactPage = () => {
   return (
-    <Box>
-      <Box className="page-heading" sx={{
-        display: { xs: 'block', sm: 'flex' },
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-        padding: { xs: '9em 2em 0em 2.1em', sm: '10em 0 0 0' },
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        wordWrap: 'break-word',
-        lineHeight: '2em',
-        maxHeight: '11em'
-      }}>
-        <Typography variant="h2" component="h2" className="line1" sx={{ mb: 0 }}>
-          Reach Out.
-        </Typography>
-        <Typography variant="h2" component="h2" className="line2" sx={{ mt: 0 }}>
-          We're Here To Help.
-        </Typography>
+    <>
+      <PageHeaders title="Reach Out." subtitle="We're Here To Help." />
+      <Box
+        sx={{
+          m: 2,
+          gap: 2,
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: { xs: "column", md: "row" },
+        }}
+      >
+        {cards.map((cards, key) => (
+          <Card
+            key={key}
+            sx={{
+              p: 2,
+              height: 800,
+              width: { xs: "100%", md: 400 },
+            }}
+          >
+            {cards}
+          </Card>
+        ))}
       </Box>
-
-      <Container maxWidth="lg" sx={{ my: 4 }}>
-        <Grid container spacing={4} className="contact-container" sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          flexDirection: { xs: 'column', md: 'row' },
-          alignItems: 'center'
-        }}>
-          <ContactDetailsCard />
-          <ContactFormCard />
-        </Grid>
-      </Container>
-    </Box>
+    </>
   );
 };
 
