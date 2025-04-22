@@ -27,7 +27,7 @@ const palette = {
     contrastText: '#191a1c',
   },
   background: {
-    default: '#191a1c',
+    default: '#f2f2f2',
     paper: '#0b0c0d',
   },
   text: {

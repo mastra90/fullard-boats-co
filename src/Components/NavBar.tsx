@@ -1,144 +1,112 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import MenuIcon from '@mui/icons-material/Menu';
-import navHomeIcon from '../assets/logo-mobile.svg';
-import { Box, Drawer, IconButton, Toolbar, Tooltip, useMediaQuery, useTheme, } from "@mui/material"
-
+import { Menu as MenuIcon, Construction, ContactPage, Person, Sailing } from '@mui/icons-material';
+import { AppBar, Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Tooltip, useMediaQuery, useTheme, } from "@mui/material";
 
 const NavBar = () => {
   const theme = useTheme();
   const location = useLocation();
-  const isDesktop = useMediaQuery(theme.breakpoints.down('md'));
-  const isHomePage = (location.pathname === '/')
-  const navHomeTooltipText = 'Navigate home'
-
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isHomePage = (location.pathname === '/');
   const [menuOpen, setMenuOpen] = useState(false);
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const HomeIcon = () => {
-    return (
-      <Link to="/">
-        <Tooltip title={navHomeTooltipText}>
-          <Box
-            component="img"
-            src={navHomeIcon}
-            alt={navHomeTooltipText}
-            sx={{
-              m: 4,
-              height: 24,
-              zIndex: 200,
-              position: 'absolute',
-            }}
-          />
-        </Tooltip>
-      </Link>
-    );
-  }
+  const menuItems = [
+    { text: 'About Us', icon: <Person />, route: '/about-us' },
+    { text: 'Our Services', icon: <Construction />, route: '/our-services' },
+    { text: 'Contact Us', icon: <ContactPage />, route: '/contact-us' }
+  ];
 
-  const MobileMenu = () => {
+  const HomeIcon = () => {
+    if (isHomePage) return null;
+    return (
+      <Tooltip title='Navigate home'>
+        <IconButton
+          to="/"
+          component={Link}
+          color="inherit"
+        >
+          <Sailing sx={{ fontSize: 32 }} />
+        </IconButton>
+      </Tooltip>
+    );
+  };
+
+  const NavDrawer = () => {
+    const DrawerList = (
+      <Box sx={{ width: 250 }}>
+        <List>
+          {menuItems.map((item) => (
+            <ListItem key={item.text} disablePadding>
+              <ListItemButton component={Link} to={item.route}>
+                <ListItemIcon sx={{ color: "inherit" }}>
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+      </Box>
+    );
+
     return (
       <Drawer
-        anchor="top"
+        anchor="right"
         open={menuOpen}
         onClose={toggleMenu}
-        PaperProps={{
-          sx: {
-            backgroundColor: '#1d1e21',
-            height: '100%',
-          }
-        }}
       >
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            pt: 8,
-            pb: 4
-          }}
-          onClick={toggleMenu}
-        >
-          <Link
-            to="/about-us"
-            style={{
-              textDecoration: 'none',
-              color: 'white',
-              padding: '1em',
-              fontSize: '1.2rem'
-            }}
-            onClick={toggleMenu}
-          >
-            About Us
-          </Link>
-          <Link
-            to="/our-services"
-            style={{
-              textDecoration: 'none',
-              color: 'white',
-              padding: '1em',
-              fontSize: '1.2rem'
-            }}
-          >
-            Our Services
-          </Link>
-          <Link
-            to="/contact-us"
-            style={{
-              textDecoration: 'none',
-              color: 'white',
-              padding: '1em',
-              fontSize: '1.2rem'
-            }}
-          >
-            Contact Us
-          </Link>
-        </Box>
+        {DrawerList}
       </Drawer>
-    )
-  }
+    );
+  };
+
+  if (isHomePage) return null;
 
   return (
-    <Toolbar>
-      {!isHomePage && <HomeIcon />}
-      
-        <Box sx={{ flexGrow: 1 }} />
-        {isDesktop ? (
+    <>
+      <Box sx={{ bgcolor: theme.palette.primary.main, width: '100%', height: 400, position: 'absolute', zIndex: -10000 }} />
+      <Toolbar sx={{ justifyContent: 'space-between' }}>
+        <HomeIcon />
+        {isMobile ? (
           <IconButton
             color="inherit"
-            aria-label="open menu"
-            edge="end"
             onClick={toggleMenu}
-            sx={{ fontSize: '1.3em' }}
           >
-            <MenuIcon />
+            <MenuIcon sx={{ fontSize: 32 }} />
+            <NavDrawer />
           </IconButton>
         ) : (
           <Box
             component="nav"
             sx={{
               display: 'flex',
-              gap: '2em',
-              fontSize: '1.5em',
-              fontWeight: 500
+              gap: 4,
             }}
           >
-            <Link to="/about-us" style={{ textDecoration: 'none', color: 'inherit' }}>
-              About Us
-            </Link>
-            <Link to="/our-services" style={{ textDecoration: 'none', color: 'inherit' }}>
-              Our Services
-            </Link>
-            <Link to="/contact-us" style={{ textDecoration: 'none', color: 'inherit' }}>
-              Contact Us
-            </Link>
+            {menuItems.map((item) => (
+              <Link
+                key={item.text}
+                to={item.route}
+                style={{
+                  textDecoration: 'none',
+                  color: theme.palette.text.primary,
+                  fontWeight: 500,
+                  fontSize: 20
+                }}
+              >
+                {item.text}
+              </Link>
+            ))}
           </Box>
         )}
-      
-      <MobileMenu />
       </Toolbar>
-  )
-}
+    </>
+  );
+};
 
 export default NavBar;
