@@ -1,4 +1,4 @@
-import { Card, Box } from "@mui/material";
+import { Card, Box, CardContent } from "@mui/material";
 import OurServicesCard from "../components/OurServicesCard";
 import FaqCard from "../components/FaqCard";
 import PageHeaders from "../components/PageHeaders";
@@ -6,11 +6,11 @@ import PageHeaders from "../components/PageHeaders";
 const cards = [
   {
     content: <OurServicesCard />,
-    width: 400,
+    width: 440,
   },
   {
     content: <FaqCard />,
-    width: 800,
+    width: 1000,
   },
 ];
 
@@ -30,16 +30,23 @@ const OurServicesPage = () => {
           flexDirection: { xs: "column", md: "row" },
         }}
       >
-        {cards.map((cards, key) => (
+        {cards.map((card, key) => (
           <Card
             key={key}
             sx={{
-              p: 2,
-              height: 800,
-              width: { xs: "100%", md: cards.width },
+              height: "fit-content",
+              width: { xs: "100%", md: card.width },
             }}
           >
-            {cards.content}
+            <CardContent
+              sx={{
+                "&:last-child": {
+                  p: 0,
+                },
+              }}
+            >
+              {card.content}
+            </CardContent>
           </Card>
         ))}
       </Box>

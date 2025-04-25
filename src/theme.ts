@@ -7,9 +7,9 @@ declare module "@mui/material/styles" {
   }
 
   interface TypeText {
-    will?: string;
-    kelly?: string;
-    aiden?: string;
+    blue?: string;
+    green?: string;
+    pink?: string;
   }
 }
 
@@ -23,9 +23,9 @@ const palette = {
   },
   text: {
     primary: "#f2f2f2",
-    will: "#90CAF3", // Will's color
-    kelly: "#77e7c0", // Kelly's color
-    aiden: "#EF86C9", // Aiden's color
+    blue: "#90CAF3", // Will's color
+    green: "#77e7c0", // Kelly's color
+    pink: "#EF86C9", // Aiden's color
   },
 };
 
