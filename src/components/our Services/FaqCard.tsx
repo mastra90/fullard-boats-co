@@ -1,6 +1,7 @@
 import { Box, List, ListItem, Typography, useTheme } from "@mui/material";
-import CardImage from "./CardImage";
-import water from "../assets/water.png";
+import CardImage from "../CardImage";
+import water from "../../assets/water.png";
+import CardTitles from "../CardTitles";
 
 const FaqCard = () => {
   const theme = useTheme();
@@ -40,11 +41,9 @@ const FaqCard = () => {
 
   return (
     <>
-      <CardImage source={water} height={140} />
+      <CardImage source={water} height={150} position={"absolute"} />
       <Box sx={{ position: "relative", p: 4 }}>
-        <Typography variant="h5" sx={{ color: theme.palette.text.green }}>
-          FAQ
-        </Typography>
+        <CardTitles title={"FAQ"} color={theme.palette.text.green} />
 
         <Typography sx={{ mt: 2 }}>
           Have a question that isn't answered here?
@@ -54,7 +53,7 @@ const FaqCard = () => {
         </Typography>
 
         {faqs && (
-          <List sx={{ p: 0 }}>
+          <List sx={{ pt: 2 }}>
             {faqs.map((faq, index) => (
               <ListItem key={index} sx={{ p: 0, mt: 2, display: "list-item" }}>
                 <Typography component="span" sx={{ fontWeight: 600 }}>

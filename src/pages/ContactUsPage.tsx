@@ -1,7 +1,7 @@
 import { Card, Box } from "@mui/material";
 import PageHeaders from "../components/PageHeaders";
-import ContactDetailsCard from "../components/ContactDetailsCard";
-import ContactFormCard from "../components/ContactFormCard";
+import ContactDetailsCard from "../components/contact us/ContactDetailsCard";
+import ContactFormCard from "../components/contact us/ContactFormCard";
 
 const cards = [<ContactDetailsCard />, <ContactFormCard />];
 

@@ -1,11 +1,11 @@
 import { Box } from "@mui/material";
 
-const CardImage = ({ source, height }) => {
+const CardImage = ({ source, height, position }) => {
   return (
     <Box sx={{ position: "relative" }}>
       <Box
         sx={{
-          position: "absolute",
+          position: position,
           left: 0,
           right: 0,
           height: height,
