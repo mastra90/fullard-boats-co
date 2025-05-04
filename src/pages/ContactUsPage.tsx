@@ -12,6 +12,7 @@ const ContactPage = () => {
       <Box
         sx={{
           m: 2,
+          mt: 6,
           gap: 2,
           display: "flex",
           justifyContent: "center",
@@ -22,9 +23,9 @@ const ContactPage = () => {
           <Card
             key={key}
             sx={{
-              p: 2,
-              height: 800,
-              width: { xs: "100%", md: 400 },
+              height: "fit-content",
+              width: { xs: "100%", md: 440 },
+              p:2
             }}
           >
             {cards}
