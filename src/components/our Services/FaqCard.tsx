@@ -1,4 +1,4 @@
-import { Box, List, ListItem, Typography, useTheme } from "@mui/material";
+import { Box, Link, List, ListItem, Typography, useTheme } from "@mui/material";
 import CardImage from "../CardImage";
 import water from "../../assets/water.png";
 import CardTitles from "../CardTitles";
@@ -29,8 +29,35 @@ const FaqCard = () => {
     },
     {
       question: "Can I see some photos of your work?",
-      answer:
-        "Of course! We regularly post photos of our hard work on the Fullard Boat Co Facebook and Instagram pages.",
+      answer: (
+        <>
+          Of course! We regularly post photos of our hard work on the{" "}
+          <Link
+            href="https://www.facebook.com/FullardBoats"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: theme.palette.text.green,
+              textDecoration: "underline",
+            }}
+          >
+            Fullard Boat Co Facebook
+          </Link>{" "}
+          and{" "}
+          <Link
+            href="https://www.instagram.com/fullardboatco/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: theme.palette.text.green,
+              textDecoration: "underline",
+            }}
+          >
+            Instagram
+          </Link>{" "}
+          pages.
+        </>
+      ),
     },
     {
       question: "Have some work you'd like to discuss with us?",
