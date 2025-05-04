@@ -5,7 +5,6 @@ declare module "@mui/material/styles" {
     drawer?: string;
     nav?: string;
   }
-
   interface TypeText {
     blue?: string;
     green?: string;
@@ -75,6 +74,40 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           color: palette.primary.main,
+        },
+      },
+    },
+    MuiInput: {
+      styleOverrides: {
+        root: {
+          // Underline styles
+          "&:before": {
+            borderBottom: "1px solid #2c2d2e",
+          },
+          "&:hover:not(.Mui-disabled):before": {
+            borderBottom: "1px solid #333333",
+          },
+          "&:after": {
+            borderBottom: `1px solid ${palette.text.green}`,
+          },
+        },
+      },
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          "& input::placeholder, & textarea::placeholder": {
+            color: "#333333",
+            opacity: 1,
+          },
+          "& input:focus::placeholder, & textarea:focus::placeholder": {
+            color: "#555555",
+            opacity: 1,
+          },
+          "& input:hover::placeholder, & textarea:hover::placeholder": {
+            color: "#555555",
+            opacity: 1,
+          },
         },
       },
     },
