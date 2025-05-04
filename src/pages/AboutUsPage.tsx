@@ -60,6 +60,66 @@ const AboutUsPage = () => {
       />
       <Box
         sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Typography
+          fontSize={20}
+          sx={{
+            borderRadius: 2,
+            maxWidth: 1000,
+            mt: {
+              xs: 4,
+              sm: 4,
+              md: 2,
+            },
+            mb: {
+              xs: 2,
+              sm: 2,
+              md: 4,
+            },
+            mx: 2,
+            p: 2,
+            bgcolor: {
+              xs: theme.palette.text.dark,
+              sm: theme.palette.text.dark,
+              md: "inherit",
+            },
+          }}
+        >
+          Established in 2018, Fullard Boat Co is a family-run business based
+          around the Gippsland Lakes in Victoria. We offer a comprehensive
+          service for all wooden and fibreglass boats, specialising in both
+          timber and fibreglass repairs, restorations and new builds.
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Typography
+          variant="h4"
+          sx={{
+            maxWidth: 800,
+            my: {
+              xs: 2,
+              sm: 2,
+              md: 4,
+            },
+            mb: 4,
+            color: theme.palette.text.dark,
+          }}
+        >
+          Our Team
+        </Typography>
+      </Box>
+      <Box
+        sx={{
           m: 2,
           gap: 2,
           display: "flex",

@@ -3,7 +3,12 @@ import { Box, Typography } from "@mui/material";
 const PageHeaders = ({ title, subtitle }) => (
   <Box
     sx={{
-      my: 8,
+      mt: {
+        xs: 6,
+        sm: 8,
+        md: 12,
+      },
+      mx: 2,
       display: "flex",
       justifyContent: "center",
     }}

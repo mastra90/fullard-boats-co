@@ -10,6 +10,7 @@ declare module "@mui/material/styles" {
     blue?: string;
     green?: string;
     pink?: string;
+    dark?: string;
   }
 }
 
@@ -23,6 +24,7 @@ const palette = {
   },
   text: {
     primary: "#f2f2f2",
+    dark: "#0b0c0d",
     blue: "#90CAF3", // Will's color
     green: "#77e7c0", // Kelly's color
     pink: "#EF86C9", // Aiden's color
@@ -33,12 +35,12 @@ const theme = createTheme({
   palette,
   typography: {
     fontFamily: "'IBM Plex Sans', sans-serif",
-    h1: {},
-    h2: {},
-    h3: {},
-    h4: {},
+    h1: { fontWeight: 600 },
+    h2: { fontWeight: 600 },
+    h3: { fontWeight: 600 },
+    h4: { fontWeight: 600 },
     h5: { fontWeight: 600 },
-    h6: {},
+    h6: { fontWeight: 600 },
     body1: {},
     body2: {},
   },

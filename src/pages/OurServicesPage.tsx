@@ -24,6 +24,7 @@ const OurServicesPage = () => {
       <Box
         sx={{
           m: 2,
+          mt: 6,
           gap: 2,
           display: "flex",
           justifyContent: "center",
