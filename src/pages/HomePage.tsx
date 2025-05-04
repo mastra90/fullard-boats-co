@@ -1,4 +1,4 @@
-import { Box, Typography, Link, useTheme, useMediaQuery } from "@mui/material";
+import { Box, Typography, Link, useMediaQuery } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import {
   Phone as PhoneIcon,
@@ -9,9 +9,9 @@ import {
 // Adjust the path as needed
 import logo from "../assets/logo.png";
 import homeBg from "../assets/homebg.png";
+import theme from "../theme";
 
 const HomePage = () => {
-  const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (

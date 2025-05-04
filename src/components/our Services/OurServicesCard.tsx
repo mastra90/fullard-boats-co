@@ -1,10 +1,10 @@
-import { Box, List, ListItem, Typography, useTheme } from "@mui/material";
+import { Box, List, ListItem, Typography } from "@mui/material";
 import brush from "../../assets/brush.png";
 import CardImage from "../CardImage";
 import CardTitles from "../CardTitles";
+import theme from "../../theme";
 
 const OurServicesCard = () => {
-  const theme = useTheme();
   const services = [
     "Traditional Timber Shipwrighting",
     "Fibreglass Repairs",
@@ -24,7 +24,7 @@ const OurServicesCard = () => {
       <CardImage source={brush} height={190} position={"absolute"} />
       <Box sx={{ position: "relative", p: 4 }}>
         <CardTitles title={"Our Services"} color={theme.palette.text.blue} />
-        <Typography sx={{ my: 2 }}>
+        <Typography>
           At Fullard Boat Co we offer a wide range of services. We have built a
           solid reputation and pride ourselves on our attention to detail and
           high-quality finishes at competitive prices. The services we offer

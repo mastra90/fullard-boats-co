@@ -1,10 +1,10 @@
-import { Box, Link, List, ListItem, Typography, useTheme } from "@mui/material";
+import { Box, Link, List, ListItem, Typography } from "@mui/material";
 import CardImage from "../CardImage";
 import water from "../../assets/water.png";
 import CardTitles from "../CardTitles";
+import theme from "../../theme";
 
 const FaqCard = () => {
-  const theme = useTheme();
   const faqs = [
     {
       question: "Where is your workshop located?",
@@ -72,10 +72,8 @@ const FaqCard = () => {
       <Box sx={{ position: "relative", p: 4 }}>
         <CardTitles title={"FAQ"} color={theme.palette.text.green} />
 
-        <Typography sx={{ mt: 2 }}>
-          Have a question that isn't answered here?
-        </Typography>
-        <Typography sx={{ mb: 2 }}>
+        <Typography>Have a question that isn't answered here?</Typography>
+        <Typography>
           Get in touch with us using the contact form below or give us a call.
         </Typography>
 

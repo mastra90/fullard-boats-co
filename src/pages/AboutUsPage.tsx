@@ -141,7 +141,7 @@ const AboutUsPage = () => {
             <CardImage source={member.image} alt={member.name} />
             <Box sx={{ p: 4 }}>
               <CardTitles title={member.name} color={member.color} />
-              <Typography sx={{ mt: 2 }}>{member.blurb}</Typography>
+              <Typography>{member.blurb}</Typography>
             </Box>
           </Card>
         ))}

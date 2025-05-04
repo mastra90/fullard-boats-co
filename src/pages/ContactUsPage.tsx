@@ -24,8 +24,8 @@ const ContactPage = () => {
             key={key}
             sx={{
               height: "fit-content",
-              width: { xs: "100%", md: 440 },
-              p:2
+              width: { xs: "100%", md: 480 },
+              p: 2,
             }}
           >
             {cards}

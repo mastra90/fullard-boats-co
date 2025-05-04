@@ -6,7 +6,7 @@ const CardTitles = ({ title, color }) => (
       display: "flex",
     }}
   >
-    <Typography variant="h5" color={color}>
+    <Typography variant="h5" color={color} sx={{ mb: 2 }}>
       {title}
     </Typography>
   </Box>

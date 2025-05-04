@@ -19,11 +19,12 @@ import {
   Toolbar,
   Tooltip,
   useMediaQuery,
-  useTheme,
+
 } from "@mui/material";
+import theme from "../theme";
 
 const NavBar = () => {
-  const theme = useTheme();
+
   const location = useLocation();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const isHomePage = location.pathname === "/";

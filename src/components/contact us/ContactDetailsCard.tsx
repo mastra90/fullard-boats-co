@@ -1,94 +1,124 @@
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Link, List, ListItem, Typography } from "@mui/material";
 import CardTitles from "../CardTitles";
 import theme from "../../theme";
 import {
   Phone as PhoneIcon,
   Email as EmailIcon,
   Facebook as FacebookIcon,
+  Instagram as InstagramIcon,
 } from "@mui/icons-material";
+
+const headings = [
+  {
+    icon: <PhoneIcon sx={{ mr: 2 }} />,
+    text: "0434 819 553",
+  },
+  {
+    icon: <EmailIcon sx={{ mr: 2 }} />,
+    text: "office@fullardboatco.com",
+  },
+  {
+    icon: <FacebookIcon sx={{ mr: 2 }} />,
+    text: (
+      <>
+        <Link
+          href="https://www.facebook.com/FullardBoats"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="facebook-link"
+        >
+          facebook.com/FullardBoatCo
+        </Link>
+      </>
+    ),
+  },
+  {
+    icon: <InstagramIcon sx={{ mr: 2 }} />,
+    text: (
+      <>
+        <Link
+          href="https://www.instagram.com/fullardboatco/"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="facebook-link"
+        >
+          instagram.com/fullardboatco
+        </Link>
+      </>
+    ),
+  },
+];
+
+const details = [
+  "8:00am - 4:30pm",
+  "Monday - Friday",
+  "*Excluding public holidays",
+  "_",
+  "Metung, VIC",
+  "Bairnsdale, VIC",
+  "Paynesville, VIC",
+  "Lakes Entrance, VIC",
+];
 
 const ContactDetailsCard = () => {
   return (
     <Box sx={{ position: "relative", p: 2 }}>
       <CardTitles title={"Our Details"} color={theme.palette.text.pink} />
-      <Box sx={{ my: 4 }}>
-        <Typography
-          variant="h5"
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            mb: 2,
-            fontSize: {
-              xs: 16,
-              sm: 24,
-              md: 24,
-            },
-          }}
-        >
-          <PhoneIcon sx={{ mr: 2 }} /> 0434 819 553
-        </Typography>
 
-        <Typography
-          variant="h5"
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            mb: 2,
-            fontSize: {
-              xs: 16,
-              sm: 24,
-              md: 24,
-            },
-          }}
-        >
-          <EmailIcon sx={{ mr: 2 }} /> office@fullardboatco.com
-        </Typography>
-
-        <Link
-          href="https://www.facebook.com/FullardBoats"
-          target="_blank"
-          rel="noopener noreferrer"
-          sx={{
-            textDecoration: "none",
-            color: "text.primary",
-          }}
-          id="facebook-link"
-        >
+      <Box sx={{ mt: 1, mb: 3 }}>
+        {headings.map((heading, key) => (
           <Typography
+            key={key}
             variant="h5"
             sx={{
               display: "flex",
               alignItems: "center",
-              mb: 2,
+              mb: 1,
               fontSize: {
                 xs: 16,
-                sm: 24,
-                md: 24,
+                sm: 20,
+                md: 20,
               },
             }}
           >
-            <FacebookIcon sx={{ mr: 2 }} /> facebook.com/FullardBoatCo
+            {heading.icon}
+            {heading.text}
           </Typography>
-        </Link>
+        ))}
       </Box>
-      <Box>
-        <Typography variant="h6" sx={{ mb: 1 }}>
-          Opening Hours
-        </Typography>
-        <Typography>8:00am - 4:30pm</Typography>
-        <Typography>Monday - Friday</Typography>
-        <Typography sx={{ fontStyle: "italic", mb: 2 }}>
-          *Excluding public holidays
-        </Typography>
 
-        <Typography variant="h6" sx={{ mb: 1 }}>
-          Service Locations
-        </Typography>
-        <Box component="ul" sx={{ pl: 2, m: 0 }}>
-          <Typography component="li">Metung, VIC</Typography>
-          <Typography component="li">Bairnsdale, VIC</Typography>
-          <Typography component="li">Paynesville, VIC</Typography>
-          <Typography component="li">Lakes Entrance, VIC</Typography>
+      <Box>
+        <Typography variant="h6">Opening Hours</Typography>
+        <Box>
+          {details.map((detail, index) => {
+            if (detail === "_") {
+              return (
+                <Typography key={index} variant="h6" sx={{ mt: 2 }}>
+                  Service Locations
+                </Typography>
+              );
+            }
+            return (
+              <List
+                key={index}
+                sx={{
+                  listStyleType: detail.startsWith("*") ? "default" : "disc",
+                  p: 0,
+                }}
+              >
+                <ListItem
+                  sx={{
+                    p: 0,
+                    ml: detail.startsWith("*") ? 0 : 2,
+                    display: "list-item",
+                    fontStyle: detail.startsWith("*") ? "italic" : "inherit",
+                  }}
+                >
+                  {detail}
+                </ListItem>
+              </List>
+            );
+          })}
         </Box>
       </Box>
     </Box>
