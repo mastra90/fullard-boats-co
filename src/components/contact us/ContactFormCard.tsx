@@ -17,7 +17,7 @@ const fields = [
   },
   {
     label: "Subject*",
-    placeholder: "Your contact number",
+    placeholder: "Your messsage",
   },
 ];
 
@@ -36,7 +36,7 @@ const ContactFormCard = () => {
               {field.label}
             </Typography>
             <TextField
-              placeholder="Your message"
+              placeholder={field.placeholder}
               variant="standard"
               fullWidth
               multiline
