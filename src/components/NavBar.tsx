@@ -69,7 +69,11 @@ const NavBar = () => {
       <TopBackground />
       <HomeIcon />
       {isMobile ? (
-        <IconButton disableRipple onClick={toggleMenu} sx={{ m: 1, p: 1 }}>
+        <IconButton
+          disableRipple
+          onClick={toggleMenu}
+          sx={{ m: 1, p: 1, display: "flex", position: "absolute", right: 0 }}
+        >
           <MenuIcon sx={{ fontSize: 32 }} />
           <Drawer anchor="right" open={menuOpen} onClose={toggleMenu}>
             <List sx={{ width: 200 }}>
@@ -91,7 +95,7 @@ const NavBar = () => {
             display: "flex",
             gap: 2,
             mr: 2,
-            position: "fixed",
+            position: "absolute",
             right: 0,
           }}
         >

@@ -3,6 +3,7 @@ import homeBg from "../assets/homebg.png";
 import CardImage from "../components/CardImage";
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
+import logo from "../assets/logo.png";
 
 const HomePage = () => {
   const tagLines = [
@@ -12,11 +13,47 @@ const HomePage = () => {
     "Check out our services! >",
   ];
 
-  const tagAnimations = (key: number, tagLine: string) => {
-    const delay = 500 + key * 500;
-    const easeIn = `200ms ease-in ${delay}ms forwards`;
+  const tagContainerStyle = () => {
+    return {
+      p: {
+        xs: 4,
+        sm: 8,
+        md: 12,
+      },
+
+      pt: {
+        xs: 0,
+        sm: 0,
+        md: 6,
+      },
+    };
+  };
+
+  const tagStyle = (tagLine) => {
     const isCTA = tagLine === tagLines.slice(-1)[0];
-    const animation = isCTA ? `slideInFromLeft ${easeIn}` : `fadeIn ${easeIn}`;
+    return {
+      mt: isCTA ? 4 : 0,
+      fontSize: isCTA
+        ? {
+            xs: 20,
+            sm: 24,
+            md: 32,
+          }
+        : {
+            xs: 40,
+            sm: 56,
+            md: 108,
+          },
+    };
+  };
+
+  const tagAnimations = (key: number, tagLine: string) => {
+    const isCTA = tagLine === tagLines.slice(-1)[0];
+    const delay = 500 + key * 500;
+    const easeIn = isCTA ? 400 : 200;
+    const animation = isCTA
+      ? `slideInFromLeft ${easeIn}ms ease-in ${delay}ms forwards`
+      : `fadeIn ${easeIn}ms ease-in ${delay}ms forwards`;
 
     return {
       opacity: 0,
@@ -38,6 +75,28 @@ const HomePage = () => {
     };
   };
 
+  const logoImageStyle = () => {
+    return {
+      width: {
+        xs: 240,
+        sm: 360,
+        md: 600,
+      },
+      mt: {
+        xs: 0,
+        sm: -4,
+        md: -8,
+      },
+      ml: {
+        xs: 1,
+        sm: 3.5,
+        md: 4.5,
+      },
+      opacity: 0,
+      animation: "fadeIn 200ms ease-in 2400ms forwards",
+    };
+  };
+
   return (
     <>
       <CardImage
@@ -48,15 +107,17 @@ const HomePage = () => {
       />
       <NavBar />
       {tagLines && (
-        <Box sx={{ p: 16 }}>
+        <Box sx={tagContainerStyle}>
           {tagLines.map((tagLine, key) => {
             const isCTA = tagLine === tagLines.slice(-1)[0];
-            const variant = isCTA ? "h4" : "h1";
             return (
               <Typography
-                variant={variant}
+                variant="h1"
                 key={key}
-                sx={{ ...tagAnimations(key, tagLine), mt: isCTA ? 4 : 0 }}
+                sx={{
+                  ...tagAnimations(key, tagLine),
+                  ...tagStyle(tagLine),
+                }}
               >
                 {!isCTA && tagLine}
                 {isCTA && (
@@ -75,6 +136,12 @@ const HomePage = () => {
           })}
         </Box>
       )}
+      <Box
+        component="img"
+        src={logo}
+        alt="FullardBoatsCo logo"
+        sx={logoImageStyle}
+      />
     </>
   );
 };
@@ -199,37 +266,37 @@ export default HomePage;
 //       </Box>
 
 //       {/* Logo background */}
-//       <Box
-//         component="img"
-//         src={logo}
-//         alt="Logo Background"
-//         sx={{
-//           width: {
-//             xs: "200px",
-//             sm: "350px",
-//             md: "550px",
-//           },
-//           position: {
-//             xs: "absolute",
-//             sm: "absolute",
-//           },
-//           margin: {
-//             xs: "18em 0em 0em 2em",
-//             sm: "8em 0em 0em 3.5em",
-//             md: "35em 0em -2em 3em",
-//           },
-//           float: {
-//             sm: "right",
-//           },
-//           opacity: 0,
-//           animation: "fadeIn 200ms ease-in 1200ms forwards",
-//           display: {
-//             xs: "inline",
-//             sm: "flex",
-//           },
-//         }}
-//         className="logobgV2"
-//       />
+// <Box
+//   component="img"
+//   src={logo}
+//   alt="Logo Background"
+//   sx={{
+//     width: {
+//       xs: "200px",
+//       sm: "350px",
+//       md: "550px",
+//     },
+//     position: {
+//       xs: "absolute",
+//       sm: "absolute",
+//     },
+//     margin: {
+//       xs: "18em 0em 0em 2em",
+//       sm: "8em 0em 0em 3.5em",
+//       md: "35em 0em -2em 3em",
+//     },
+//     float: {
+//       sm: "right",
+//     },
+//     opacity: 0,
+//     animation: "fadeIn 200ms ease-in 1200ms forwards",
+//     display: {
+//       xs: "inline",
+//       sm: "flex",
+//     },
+//   }}
+//   className="logobgV2"
+// />
 
 //       {/* Contact details */}
 //       <Box
