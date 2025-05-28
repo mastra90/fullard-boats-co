@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import homeBg from "../assets/homebg.png";
 import CardImage from "../components/CardImage";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const tagLines = [
@@ -55,7 +56,18 @@ const HomePage = () => {
                 key={key}
                 sx={tagAnimations(key, tagLine)}
               >
-                {tagLine}
+                {!isCTA && tagLine}
+                {isCTA && (
+                  <Link
+                    to="/our-services"
+                    style={{
+                      textDecoration: "none",
+                      color: "inherit",
+                    }}
+                  >
+                    <u>{tagLine}</u>
+                  </Link>
+                )}
               </Typography>
             );
           })}
