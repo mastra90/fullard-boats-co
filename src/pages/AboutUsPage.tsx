@@ -5,6 +5,7 @@ import will from "../assets/will.png";
 import kelly from "../assets/kelly.png";
 import aidan from "../assets/aidan.png";
 import theme from "../theme";
+import NavBar from "../components/NavBar";
 
 const blurbs = {
   will: "Will is a qualified shipwright who began working in the boat building industry in 2007. He has worked as a shipwright on various projects from the restoration of a traditional timber tall ship, to modern composite new build yacht tenders both here in Australia and in the UK.",
@@ -54,6 +55,7 @@ const CardImage = ({ source, alt }) => {
 const AboutUsPage = () => {
   return (
     <>
+      <NavBar />
       <PageHeaders
         title="Navigating Excellence."
         subtitle="Your Journey Starts with Our Craftsmanship."

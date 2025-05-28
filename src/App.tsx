@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import NavBar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
 import AboutUsPage from "./pages/AboutUsPage";
 import OurServicesPage from "./pages/OurServicesPage";
@@ -8,7 +7,6 @@ import ContactPage from "./pages/ContactUsPage";
 function App() {
   return (
     <>
-      <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about-us" element={<AboutUsPage />} />

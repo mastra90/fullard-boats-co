@@ -19,12 +19,10 @@ import {
   Toolbar,
   Tooltip,
   useMediaQuery,
-
 } from "@mui/material";
 import theme from "../theme";
 
 const NavBar = () => {
-
   const location = useLocation();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const isHomePage = location.pathname === "/";
@@ -41,12 +39,13 @@ const NavBar = () => {
   ];
 
   const TopBackground = () => {
+    const isHomePage = location.pathname === "/";
     return (
       <Box
         sx={{
           bgcolor: theme.palette.background.nav,
           width: "100%",
-          height: 700,
+          height: isHomePage ? 0 : 700,
           position: "absolute",
           zIndex: -10,
         }}
@@ -64,8 +63,6 @@ const NavBar = () => {
       </Tooltip>
     );
   };
-
-  if (isHomePage) return null;
 
   return (
     <Toolbar disableGutters>
@@ -94,6 +91,8 @@ const NavBar = () => {
             display: "flex",
             gap: 2,
             mr: 2,
+            position: "fixed",
+            right: 0,
           }}
         >
           {menuItems.map((item) => (

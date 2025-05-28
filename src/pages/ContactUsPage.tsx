@@ -2,12 +2,14 @@ import { Card, Box } from "@mui/material";
 import PageHeaders from "../components/PageHeaders";
 import ContactDetailsCard from "../components/contact us/ContactDetailsCard";
 import ContactFormCard from "../components/contact us/ContactFormCard";
+import NavBar from "../components/NavBar";
 
 const cards = [<ContactDetailsCard />, <ContactFormCard />];
 
 const ContactPage = () => {
   return (
     <>
+      <NavBar />
       <PageHeaders title="Reach Out." subtitle="We're Here To Help." />
       <Box
         sx={{

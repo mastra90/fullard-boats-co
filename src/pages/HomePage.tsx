@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import homeBg from "../assets/homebg.png";
 import CardImage from "../components/CardImage";
 import { Link } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 const HomePage = () => {
   const tagLines = [
@@ -45,6 +46,7 @@ const HomePage = () => {
         position={"absolute"}
         zIndex={0}
       />
+      <NavBar />
       {tagLines && (
         <Box sx={{ p: 16 }}>
           {tagLines.map((tagLine, key) => {

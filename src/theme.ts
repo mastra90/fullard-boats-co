@@ -58,7 +58,6 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           justifyContent: "space-between",
-          backgroundColor: palette.background.nav,
         },
       },
     },
