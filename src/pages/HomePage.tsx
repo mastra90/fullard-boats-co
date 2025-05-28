@@ -56,7 +56,7 @@ const HomePage = () => {
               <Typography
                 variant={variant}
                 key={key}
-                sx={tagAnimations(key, tagLine)}
+                sx={{ ...tagAnimations(key, tagLine), mt: isCTA ? 4 : 0 }}
               >
                 {!isCTA && tagLine}
                 {isCTA && (

@@ -57,7 +57,7 @@ const NavBar = () => {
     if (isHomePage) return null;
     return (
       <Tooltip title="Navigate home">
-        <IconButton to="/" component={RouterLink} sx={{ m: 1, p: 1 }}>
+        <IconButton to="/" component={RouterLink} sx={{ ml: 1 }}>
           <Sailing fontSize="large" />
         </IconButton>
       </Tooltip>
