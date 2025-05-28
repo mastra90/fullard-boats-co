@@ -68,7 +68,7 @@ const FaqCard = () => {
 
   return (
     <>
-      <CardImage source={water} height={150} position={"absolute"} />
+      <CardImage source={water} height={150} position={"absolute"} zIndex={"inherit"} />
       <Box sx={{ position: "relative", p: 4 }}>
         <CardTitles title={"FAQ"} color={theme.palette.text.green} />
 

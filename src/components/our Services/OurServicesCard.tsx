@@ -21,7 +21,7 @@ const OurServicesCard = () => {
 
   return (
     <>
-      <CardImage source={brush} height={190} position={"absolute"} />
+      <CardImage source={brush} height={190} position={"absolute"} zIndex={"inherit"} />
       <Box sx={{ position: "relative", p: 4 }}>
         <CardTitles title={"Our Services"} color={theme.palette.text.blue} />
         <Typography>

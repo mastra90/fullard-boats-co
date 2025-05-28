@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-const CardImage = ({ source, height, position }) => {
+const CardImage = ({ source, height, position, zIndex }) => {
   return (
     <Box sx={{ position: "relative" }}>
       <Box
@@ -12,6 +12,7 @@ const CardImage = ({ source, height, position }) => {
           backgroundImage: `url(${source})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          zIndex: zIndex
         }}
       />
     </Box>
