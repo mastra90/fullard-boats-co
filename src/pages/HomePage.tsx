@@ -17,7 +17,7 @@ const HomePage = () => {
   const tagContainerStyle = () => {
     return {
       p: {
-        xs: 4,
+        xs: 2,
         sm: 8,
         md: 12,
       },
@@ -121,6 +121,10 @@ const HomePage = () => {
                   sx={{
                     ...tagAnimations(key, tagLine),
                     ...tagStyle(tagLine),
+                    "&:hover": isCTA && {
+                      textDecoration: "underline",
+                      textUnderlineOffset: { xs: "inherit", md: 12 },
+                    },
                   }}
                 >
                   {!isCTA && tagLine}
@@ -132,7 +136,7 @@ const HomePage = () => {
                         color: "inherit",
                       }}
                     >
-                      <u>{tagLine}</u>
+                      {tagLine}
                     </Link>
                   )}
                 </Typography>
@@ -148,12 +152,16 @@ const HomePage = () => {
         />
         <Card
           sx={{
-            p: 8,
+            p: { xs: 0, sm: 4, md: 8 },
             bgcolor: "transparent ",
             boxShadow: "none",
             position: "absolute",
             bottom: 0,
             right: 0,
+            display: {
+              xs: "none",
+              sm: "inherit",
+            },
           }}
         >
           <HoursLocations />

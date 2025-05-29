@@ -29,27 +29,25 @@ const ContactFormCard = () => {
       }}
     >
       <CardTitles title={"Contact Us"} color={theme.palette.text.green} />
-      <Box sx={{ mt: 1, mb: 3 }}>
-        {fields.map((field, key) => (
-          <>
-            <Typography key={key} sx={{ mt: 2 }}>
-              {field.label}
-            </Typography>
-            <TextField
-              placeholder={field.placeholder}
-              variant="standard"
-              fullWidth
-              multiline
-              sx={{
-                "& .MuiInputBase-input": {
-                  resize: field.label === "Subject*" && "vertical",
-                  minHeight: field.label === "Subject*" && 250,
-                },
-              }}
-            />
-          </>
-        ))}
-      </Box>
+
+      {fields.map((field, key) => (
+        <Box key={key} sx={{ mb: 2 }}>
+          <Typography sx={{ mt: 2 }}>{field.label}</Typography>
+          <TextField
+            placeholder={field.placeholder}
+            variant="standard"
+            fullWidth
+            multiline
+            sx={{
+              "& .MuiInputBase-input": {
+                resize: field.label === "Subject*" && "vertical",
+                minHeight: field.label === "Subject*" && 250,
+              },
+            }}
+          />
+        </Box>
+      ))}
+
       <Button
         sx={{
           textTransform: "none",

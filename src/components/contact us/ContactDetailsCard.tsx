@@ -52,32 +52,36 @@ const headings = [
 
 const ContactDetailsCard = () => {
   return (
-    <Box sx={{ position: "relative", p: 2, flexDirection: "row" }}>
-      <CardTitles title={"Our Details"} color={theme.palette.text.pink} />
+    <>
+      <Box sx={{ position: "relative", p: 2, flexDirection: "row" }}>
+        <CardTitles title={"Our Details"} color={theme.palette.text.pink} />
 
-      <Box sx={{ mt: 1, mb: 3 }}>
-        {headings.map((heading, key) => (
-          <Typography
-            key={key}
-            variant="h5"
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              mb: 1,
-              fontSize: {
-                xs: 16,
-                sm: 20,
-                md: 20,
-              },
-            }}
-          >
-            {heading.icon}
-            {heading.text}
-          </Typography>
-        ))}
+        <Box sx={{ mt: 1, mb: 3 }}>
+          {headings.map((heading, key) => (
+            <Typography
+              key={key}
+              variant="h5"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                mb: 1,
+                fontSize: {
+                  xs: 16,
+                  sm: 20,
+                  md: 20,
+                },
+              }}
+            >
+              {heading.icon}
+              {heading.text}
+            </Typography>
+          ))}
+        </Box>
       </Box>
-      <HoursLocations />
-    </Box>
+      <Box sx={{ p: 1 }}>
+        <HoursLocations />
+      </Box>
+    </>
   );
 };
 

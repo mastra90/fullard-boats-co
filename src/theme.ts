@@ -42,6 +42,9 @@ const theme = createTheme({
     h6: { fontWeight: 600 },
     body1: {},
     body2: {},
+    button: {
+      textTransform: "none",
+    },
   },
   components: {
     MuiIconButton: {

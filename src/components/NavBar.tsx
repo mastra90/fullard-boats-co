@@ -21,6 +21,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import theme from "../theme";
+import MobileModal from "./modal";
 
 const NavBar = () => {
   const location = useLocation();
@@ -67,6 +68,7 @@ const NavBar = () => {
   return (
     <Toolbar disableGutters>
       <TopBackground />
+      <MobileModal />
       <HomeIcon />
       {isMobile ? (
         <IconButton
