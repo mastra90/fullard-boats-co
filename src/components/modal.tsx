@@ -25,7 +25,7 @@ const MobileModal = () => {
           fontSize: 40,
         }}
       >
-        <ContactPageOutlined sx={{fontSize: 32,}} />
+        <ContactPageOutlined sx={{ fontSize: { xs: 28, sm: 28, md: 32 } }} />
       </IconButton>
       <Modal
         open={open}

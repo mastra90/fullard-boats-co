@@ -6,6 +6,7 @@ import {
   ContactPage,
   Person,
   Sailing,
+  Home,
 } from "@mui/icons-material";
 import {
   Box,
@@ -34,6 +35,7 @@ const NavBar = () => {
   };
 
   const menuItems = [
+    { text: "Home", icon: <Home />, route: "/" },
     { text: "About Us", icon: <Person />, route: "/about-us" },
     { text: "Our Services", icon: <Construction />, route: "/our-services" },
     { text: "Contact Us", icon: <ContactPage />, route: "/contact-us" },
@@ -59,7 +61,7 @@ const NavBar = () => {
     return (
       <Tooltip title="Navigate home">
         <IconButton to="/" component={RouterLink} sx={{ ml: 1 }}>
-          <Sailing fontSize="large" />
+          <Sailing sx={{ fontSize: { xs: 24, sm: 28, md: 32 } }} />
         </IconButton>
       </Tooltip>
     );

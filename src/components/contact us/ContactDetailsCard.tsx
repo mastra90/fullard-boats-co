@@ -11,14 +11,6 @@ import HoursLocations from "./HoursLocations";
 
 const headings = [
   {
-    icon: <PhoneIcon sx={{ mr: 2 }} />,
-    text: "0434 819 553",
-  },
-  {
-    icon: <EmailIcon sx={{ mr: 2 }} />,
-    text: "office@fullardboatco.com",
-  },
-  {
     icon: <FacebookIcon sx={{ mr: 2 }} />,
     text: (
       <>
@@ -28,7 +20,7 @@ const headings = [
           rel="noopener noreferrer"
           id="facebook-link"
         >
-          facebook.com/FullardBoatCo
+          facebook
         </Link>
       </>
     ),
@@ -43,10 +35,18 @@ const headings = [
           rel="noopener noreferrer"
           id="instagram-link"
         >
-          instagram.com/fullardboatco
+          instagram
         </Link>
       </>
     ),
+  },
+  {
+    icon: <PhoneIcon sx={{ mr: 2 }} />,
+    text: "0434 819 553",
+  },
+  {
+    icon: <EmailIcon sx={{ mr: 2 }} />,
+    text: "office@fullardboatco.com",
   },
 ];
 
@@ -56,7 +56,7 @@ const ContactDetailsCard = () => {
       <Box sx={{ position: "relative", p: 2, flexDirection: "row" }}>
         <CardTitles title={"Our Details"} color={theme.palette.text.pink} />
 
-        <Box sx={{ mt: 1, mb: 3 }}>
+        <Box sx={{ mt: 1, mb: -1 }}>
           {headings.map((heading, key) => (
             <Typography
               key={key}

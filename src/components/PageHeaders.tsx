@@ -4,9 +4,9 @@ const PageHeaders = ({ title, subtitle }) => (
   <Box
     sx={{
       mt: {
-        xs: 6,
-        sm: 8,
-        md: 12,
+        xs: 2,
+        sm: 6,
+        md: 8,
       },
       mx: 2,
       display: "flex",
