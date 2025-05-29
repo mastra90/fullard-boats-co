@@ -1,4 +1,4 @@
-import { Box, Link, List, ListItem, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 import CardTitles from "../CardTitles";
 import theme from "../../theme";
 import {
@@ -7,6 +7,7 @@ import {
   Facebook as FacebookIcon,
   Instagram as InstagramIcon,
 } from "@mui/icons-material";
+import HoursLocations from "./HoursLocations";
 
 const headings = [
   {
@@ -40,7 +41,7 @@ const headings = [
           href="https://www.instagram.com/fullardboatco/"
           target="_blank"
           rel="noopener noreferrer"
-          id="facebook-link"
+          id="instagram-link"
         >
           instagram.com/fullardboatco
         </Link>
@@ -49,20 +50,9 @@ const headings = [
   },
 ];
 
-const details = [
-  "8:00am - 4:30pm",
-  "Monday - Friday",
-  "*Excluding public holidays",
-  "_",
-  "Metung, VIC",
-  "Bairnsdale, VIC",
-  "Paynesville, VIC",
-  "Lakes Entrance, VIC",
-];
-
 const ContactDetailsCard = () => {
   return (
-    <Box sx={{ position: "relative", p: 2 }}>
+    <Box sx={{ position: "relative", p: 2, flexDirection: "row" }}>
       <CardTitles title={"Our Details"} color={theme.palette.text.pink} />
 
       <Box sx={{ mt: 1, mb: 3 }}>
@@ -86,41 +76,7 @@ const ContactDetailsCard = () => {
           </Typography>
         ))}
       </Box>
-
-      <Box>
-        <Typography variant="h6">Opening Hours</Typography>
-        <Box>
-          {details.map((detail, index) => {
-            if (detail === "_") {
-              return (
-                <Typography key={index} variant="h6" sx={{ mt: 2 }}>
-                  Service Locations
-                </Typography>
-              );
-            }
-            return (
-              <List
-                key={index}
-                sx={{
-                  listStyleType: detail.startsWith("*") ? "default" : "disc",
-                  p: 0,
-                }}
-              >
-                <ListItem
-                  sx={{
-                    p: 0,
-                    ml: detail.startsWith("*") ? 0 : 2,
-                    display: "list-item",
-                    fontStyle: detail.startsWith("*") ? "italic" : "inherit",
-                  }}
-                >
-                  {detail}
-                </ListItem>
-              </List>
-            );
-          })}
-        </Box>
-      </Box>
+      <HoursLocations />
     </Box>
   );
 };

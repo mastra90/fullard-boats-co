@@ -1,9 +1,10 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Card, Typography } from "@mui/material";
 import homeBg from "../assets/homebg.png";
 import CardImage from "../components/CardImage";
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import logo from "../assets/logo.png";
+import HoursLocations from "../components/contact us/HoursLocations";
 
 const HomePage = () => {
   const tagLines = [
@@ -94,6 +95,7 @@ const HomePage = () => {
       },
       opacity: 0,
       animation: "fadeIn 200ms ease-in 2400ms forwards",
+      display: { xs: "none", sm: "inherit" },
     };
   };
 
@@ -103,45 +105,60 @@ const HomePage = () => {
         source={homeBg}
         height={"100vh"}
         position={"absolute"}
-        zIndex={0}
+        zIndex={-10}
       />
-      <NavBar />
-      {tagLines && (
-        <Box sx={tagContainerStyle}>
-          {tagLines.map((tagLine, key) => {
-            const isCTA = tagLine === tagLines.slice(-1)[0];
-            return (
-              <Typography
-                variant="h1"
-                key={key}
-                sx={{
-                  ...tagAnimations(key, tagLine),
-                  ...tagStyle(tagLine),
-                }}
-              >
-                {!isCTA && tagLine}
-                {isCTA && (
-                  <Link
-                    to="/our-services"
-                    style={{
-                      textDecoration: "none",
-                      color: "inherit",
-                    }}
-                  >
-                    <u>{tagLine}</u>
-                  </Link>
-                )}
-              </Typography>
-            );
-          })}
-        </Box>
-      )}
-      <Box
-        component="img"
-        src={logo}
-        alt="FullardBoatsCo logo"
-        sx={logoImageStyle}
-      />
+
+      <Box sx={{ height: "100vh" }}>
+        <NavBar />
+        {tagLines && (
+          <Box sx={tagContainerStyle}>
+            {tagLines.map((tagLine, key) => {
+              const isCTA = tagLine === tagLines.slice(-1)[0];
+              return (
+                <Typography
+                  variant="h1"
+                  key={key}
+                  sx={{
+                    ...tagAnimations(key, tagLine),
+                    ...tagStyle(tagLine),
+                  }}
+                >
+                  {!isCTA && tagLine}
+                  {isCTA && (
+                    <Link
+                      to="/our-services"
+                      style={{
+                        textDecoration: "none",
+                        color: "inherit",
+                      }}
+                    >
+                      <u>{tagLine}</u>
+                    </Link>
+                  )}
+                </Typography>
+              );
+            })}
+          </Box>
+        )}
+        <Box
+          component="img"
+          src={logo}
+          alt="FullardBoatsCo logo"
+          sx={logoImageStyle}
+        />
+        <Card
+          sx={{
+            p: 8,
+            bgcolor: "transparent ",
+            boxShadow: "none",
+            position: "absolute",
+            bottom: 0,
+            right: 0,
+          }}
+        >
+          <HoursLocations />
+        </Card>
+      </Box>
     </>
   );
 };

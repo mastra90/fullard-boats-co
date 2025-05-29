@@ -115,7 +115,6 @@ const AboutUsPage = () => {
             },
             mb: 4,
             color: theme.palette.text.dark,
-            fontWeight: 600,
           }}
         >
           Our Team
