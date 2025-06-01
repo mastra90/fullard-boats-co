@@ -16,9 +16,10 @@ const cards = [
 ];
 
 const OurServicesPage = () => {
+  const isHomePage = location.pathname === "/";
   return (
     <>
-      <NavBar />
+      {!isHomePage && <NavBar />}
       <PageHeaders
         title="Hands-On Expertise:"
         subtitle="Where Our Services Exceed Your Aspirations."

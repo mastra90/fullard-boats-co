@@ -66,68 +66,92 @@ const NavBar = () => {
   };
 
   return (
-    <Toolbar disableGutters>
-      <TopBackground />
-      <MobileModal />
-      <HomeIcon />
-      <IconButton
-        disableRipple
-        onClick={toggleMenu}
+    <>
+      <Toolbar
+        disableGutters
         sx={{
-          m: 1,
-          p: 1,
-          display: { xs: "flex", md: "none" },
-          position: "absolute",
-          right: 0,
+          bgcolor: "#0e2132",
+          position: "sticky",
+          top: 0,
+          zIndex: 1100,
+          width: "100%",
+          borderBottom: "1px solid #394d5b",
         }}
       >
-        <MenuIcon sx={{ fontSize: 32 }} />
-        <Drawer anchor="right" open={menuOpen} onClose={toggleMenu}>
-          <List sx={{ width: 200 }}>
-            {menuItems.map((item) => (
-              <ListItem key={item.text} disablePadding>
-                <ListItemButton component={RouterLink} to={item.route}>
-                  <ListItemIcon>{item.icon}</ListItemIcon>
-                  <ListItemText primary={item.text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-        </Drawer>
-      </IconButton>
-
+        <MobileModal />
+        <HomeIcon />
+        <IconButton
+          disableRipple
+          onClick={toggleMenu}
+          sx={{
+            m: 1,
+            p: 1,
+            display: { xs: "flex", md: "none" },
+            position: "absolute",
+            right: 0,
+          }}
+        >
+          <MenuIcon sx={{ fontSize: 32 }} />
+          <Drawer anchor="right" open={menuOpen} onClose={toggleMenu}>
+            <List sx={{ width: 200 }}>
+              {menuItems.map((item) => (
+                <ListItem key={item.text} disablePadding>
+                  <ListItemButton component={RouterLink} to={item.route}>
+                    <ListItemIcon>{item.icon}</ListItemIcon>
+                    <ListItemText primary={item.text} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </Drawer>
+        </IconButton>
+      </Toolbar>
       <Box
-        component="nav"
         sx={{
-          display: { xs: "none", md: "flex" },
-          mr: 2,
-          position: "absolute",
-          right: 0,
+          position: "sticky",
+          top: 8,
+          zIndex: 1099,
+          bgcolor: "#0e2132",
+          height: 90,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+          boxShadow: "0em 0em 4em 0em #1d3243",
         }}
       >
-        {menuItems.map((item) => (
-          <IconButton
-            disableRipple
-            key={item.text}
-            component={RouterLink}
-            to={item.route}
-            sx={{
-              fontWeight: 500,
-              fontSize: 20,
-              borderRadius: 1,
-              "&:hover": {
-                backgroundColor: "#6c7175",
-              },
-              textDecoration:
-                location.pathname === item.route ? "underline" : "none",
-              textUnderlineOffset: 8,
-            }}
-          >
-            {item.text}
-          </IconButton>
-        ))}
+        <Box
+          component="nav"
+          sx={{
+            display: { xs: "none", md: "flex" },
+            position: "absolute",
+            gap: 8,
+          }}
+        >
+          {menuItems.map((item) => (
+            <IconButton
+              disableRipple
+              key={item.text}
+              component={RouterLink}
+              to={item.route}
+              sx={{
+                fontWeight: 500,
+                fontSize: 20,
+                borderRadius: 1,
+                "&:hover": {
+                  backgroundColor: "#6c7175",
+                },
+                textDecoration:
+                  location.pathname === item.route ? "underline" : "none",
+                textUnderlineOffset: 8,
+              }}
+            >
+              {item.text}
+            </IconButton>
+          ))}
+        </Box>
       </Box>
-    </Toolbar>
+    </>
   );
 };
 

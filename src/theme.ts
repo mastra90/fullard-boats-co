@@ -18,6 +18,7 @@ const palette = {
     main: "#f2f2f2",
   },
   background: {
+    default: "#0e2132",
     nav: "#343C42",
     paper: "#0b0c0d",
   },

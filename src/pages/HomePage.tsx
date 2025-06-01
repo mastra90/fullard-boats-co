@@ -1,10 +1,12 @@
 import { Box, Card, Typography } from "@mui/material";
 import homeBg from "../assets/homebg.png";
-import CardImage from "../components/CardImage";
+import waves from "../assets/waves.svg";
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import logo from "../assets/logo.png";
 import HoursLocations from "../components/contact us/HoursLocations";
+import AboutUsPage from "./AboutUsPage";
+import OurServicesPage from "./OurServicesPage";
 
 const HomePage = () => {
   const tagLines = [
@@ -48,7 +50,25 @@ const HomePage = () => {
     };
   };
 
-  const tagAnimations = (key: number, tagLine: string) => {
+  const LandingImage = ({ source }) => {
+    return (
+      <Box sx={{ position: "relative" }}>
+        <Box
+          sx={{
+            position: "inherit",
+            height: "60em",
+            backgroundImage: `url(${source})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            zIndex: -10,
+            backgroundAttachment: "fixed",
+          }}
+        />
+      </Box>
+    );
+  };
+
+  const tagAnimations = (key, tagLine) => {
     const isCTA = tagLine === tagLines.slice(-1)[0];
     const delay = 500 + key * 500;
     const easeIn = isCTA ? 400 : 200;
@@ -94,22 +114,40 @@ const HomePage = () => {
         md: 4.5,
       },
       opacity: 0,
-      animation: "fadeIn 200ms ease-in 2400ms forwards",
+      // animation: "fadeIn 200ms ease-in 2400ms forwards",
       display: { xs: "none", sm: "inherit" },
     };
   };
 
   return (
-    <>
-      <CardImage
-        source={homeBg}
-        height={"100vh"}
-        position={"absolute"}
-        zIndex={-10}
-      />
+    <Box>
+      <Box
+        sx={{
+          position: "absolute",
+          zIndex: -9,
+          width: "100%",
+          minHeight: "50vh",
+        }}
+      >
+        <Box
+          component="img"
+          src={waves}
+          alt="waves"
+          sx={{
+            position: "absolute",
+            width: "100%",
+            bottom: 0,
+            zIndex: -9,
+          }}
+        />
 
-      <Box sx={{ height: "100vh" }}>
-        <NavBar />
+        <LandingImage source={homeBg} />
+      </Box>
+      
+      {/* Single NavBar component that includes both primary and secondary navbars */}
+      <NavBar />
+      
+      <Box>
         {tagLines && (
           <Box sx={tagContainerStyle}>
             {tagLines.map((tagLine, key) => {
@@ -150,265 +188,13 @@ const HomePage = () => {
           alt="FullardBoatsCo logo"
           sx={logoImageStyle}
         />
-        <Card
-          sx={{
-            p: { xs: 0, sm: 4, md: 8 },
-            bgcolor: "transparent ",
-            boxShadow: "none",
-            position: "absolute",
-            bottom: 0,
-            right: 0,
-            display: {
-              xs: "none",
-              sm: "inherit",
-            },
-          }}
-        >
-          <HoursLocations />
-        </Card>
       </Box>
-    </>
+      <Box>
+        <AboutUsPage />
+        <OurServicesPage />
+      </Box>
+    </Box>
   );
 };
 
 export default HomePage;
-
-// import { Box, Typography, Link, useMediaQuery } from "@mui/material";
-// import { Link as RouterLink } from "react-router-dom";
-// import {
-//   Phone as PhoneIcon,
-//   Email as EmailIcon,
-//   Facebook as FacebookIcon,
-// } from "@mui/icons-material";
-
-// // Adjust the path as needed
-// import logo from "../assets/logo.png";
-// import homeBg from "../assets/homebg.png";
-// import theme from "../theme";
-
-// const HomePage = () => {
-//   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
-//   return (
-//     <Box
-//       sx={{
-//         backgroundImage: `url(${homeBg})`,
-//         backgroundSize: "cover",
-//         backgroundPosition: "center",
-//         height: "100vh",
-//         width: "100%",
-//         position: "absolute",
-//       }}
-//     >
-//       {/* Taglines */}
-//       <Box
-//         sx={{
-//           position: "absolute",
-//           top: isMobile ? "4rem" : "5rem",
-//           left: "1em",
-//           fontSize: {
-//             xs: "2em",
-//             sm: "3em",
-//             md: "6em",
-//           },
-//           fontWeight: 400,
-//         }}
-//       >
-//         <Typography
-//           sx={{
-//             fontSize: "inherit",
-//             mb: -4,
-//             opacity: 0,
-//             animation: "fadeIn 200ms ease-in 300ms forwards",
-//             "@keyframes fadeIn": {
-//               from: { opacity: 0 },
-//               to: { opacity: 1 },
-//             },
-//           }}
-//           id="modern"
-//         >
-//           Modern,
-//         </Typography>
-
-//         <Typography
-//           sx={{
-//             fontSize: "inherit",
-//             mb: -2,
-//             opacity: 0,
-//             animation: "fadeIn 200ms ease-in 600ms forwards",
-//           }}
-//           id="traditional"
-//         >
-//           Traditional,
-//         </Typography>
-
-//         <Typography
-//           sx={{
-//             fontSize: "inherit",
-//             mb: -2,
-//             opacity: 0,
-//             animation: "fadeIn 200ms ease-in 900ms forwards",
-//           }}
-//           id="boat-building"
-//         >
-//           Boat Building.
-//         </Typography>
-
-//         {/* "Check out our services" link */}
-//         <Box
-//           sx={{
-//             opacity: 0,
-//             animation: "slideInFromLeft 300ms ease-in 1500ms forwards",
-//             "@keyframes slideInFromLeft": {
-//               from: {
-//                 opacity: 0,
-//                 transform: "translateX(-100%)",
-//               },
-//               to: {
-//                 opacity: 1,
-//                 transform: "translateX(0)",
-//               },
-//             },
-//           }}
-//           className="see-our-services"
-//         >
-//           <Link
-//             component={RouterLink}
-//             to="/our-services"
-//             sx={{
-//               color: "text.primary",
-//               textDecoration: "none",
-//               "&:hover": {
-//                 textDecoration: "underline",
-//               },
-//             }}
-//           >
-//             <Typography sx={{ fontSize: 28, mt: 4 }}>
-//               Check out our services!
-//             </Typography>
-//           </Link>
-//         </Box>
-//       </Box>
-
-//       {/* Logo background */}
-// <Box
-//   component="img"
-//   src={logo}
-//   alt="Logo Background"
-//   sx={{
-//     width: {
-//       xs: "200px",
-//       sm: "350px",
-//       md: "550px",
-//     },
-//     position: {
-//       xs: "absolute",
-//       sm: "absolute",
-//     },
-//     margin: {
-//       xs: "18em 0em 0em 2em",
-//       sm: "8em 0em 0em 3.5em",
-//       md: "35em 0em -2em 3em",
-//     },
-//     float: {
-//       sm: "right",
-//     },
-//     opacity: 0,
-//     animation: "fadeIn 200ms ease-in 1200ms forwards",
-//     display: {
-//       xs: "inline",
-//       sm: "flex",
-//     },
-//   }}
-//   className="logobgV2"
-// />
-
-//       {/* Contact details */}
-//       <Box
-//         sx={{
-//           display: "block",
-//           position: "absolute",
-//           bottom: "4em",
-//           marginLeft: "5.2em",
-//           opacity: 0,
-//           animation: "fadeIn 400ms ease-in 1500ms forwards",
-//           "@media (max-width: 1700px)": {
-//             display: "block",
-//           },
-//         }}
-//         className="homepg-contact-details"
-//       >
-//         <Typography
-//           variant="h5"
-//           sx={{ display: "flex", alignItems: "center", mb: 1 }}
-//         >
-//           <PhoneIcon sx={{ mr: 1 }} /> 0434 819 553
-//         </Typography>
-
-//         <Typography
-//           variant="h5"
-//           sx={{ display: "flex", alignItems: "center", mb: 1 }}
-//         >
-//           <EmailIcon sx={{ mr: 1 }} /> office@fullardboatco.com
-//         </Typography>
-
-//         <Link
-//           href="https://www.facebook.com/FullardBoats"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//           sx={{
-//             textDecoration: "none",
-//             color: "text.primary",
-//           }}
-//           id="facebook-link"
-//         >
-//           <Typography
-//             variant="h5"
-//             sx={{ display: "flex", alignItems: "center" }}
-//           >
-//             <FacebookIcon sx={{ mr: 1 }} /> facebook.com/FullardBoatCo
-//           </Typography>
-//         </Link>
-//       </Box>
-
-//       {/* Service locations */}
-//       {!isMobile && (
-//         <Box
-//           sx={{
-//             position: "absolute",
-//             bottom: "2em",
-//             right: "2em",
-//             fontSize: {
-//               md: "1.2em",
-//               lg: "1.5em",
-//             },
-//             opacity: 0,
-//             animation: "fadeIn 400ms ease-in 1500ms forwards",
-//           }}
-//           className="home-serivce-locations-container"
-//         >
-//           <Typography variant="h3" sx={{ mb: 1 }}>
-//             Opening Hours
-//           </Typography>
-//           <Typography sx={{ mb: 1 }}>8:00am - 4:30pm</Typography>
-//           <Typography sx={{ mb: 1 }}>Monday - Friday</Typography>
-//           <Typography sx={{ fontStyle: "italic", fontSize: "0.8em", mb: 2 }}>
-//             *Excluding public holidays
-//           </Typography>
-
-//           <Typography variant="h3" sx={{ mb: 1 }}>
-//             Service Locations
-//           </Typography>
-//           <Box component="ul" sx={{ pl: 2, m: 0 }}>
-//             <Typography component="li">Metung, VIC</Typography>
-//             <Typography component="li">Bairnsdale, VIC</Typography>
-//             <Typography component="li">Paynesville, VIC</Typography>
-//             <Typography component="li">Lakes Entrance, VIC</Typography>
-//           </Box>
-//         </Box>
-//       )}
-//     </Box>
-//   );
-// };
-
-// export default HomePage;

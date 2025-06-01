@@ -53,9 +53,10 @@ const CardImage = ({ source, alt }) => {
 };
 
 const AboutUsPage = () => {
+  const isHomePage = location.pathname === "/";
   return (
     <>
-      <NavBar />
+      {!isHomePage && <NavBar />}
       <PageHeaders
         title="Navigating Excellence."
         subtitle="Your Journey Starts with Our Craftsmanship."
