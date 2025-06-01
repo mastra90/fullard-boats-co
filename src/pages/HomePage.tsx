@@ -143,10 +143,7 @@ const HomePage = () => {
 
         <LandingImage source={homeBg} />
       </Box>
-      
-      {/* Single NavBar component that includes both primary and secondary navbars */}
       <NavBar />
-      
       <Box>
         {tagLines && (
           <Box sx={tagContainerStyle}>
