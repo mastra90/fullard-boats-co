@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import { Link, Link as RouterLink, useLocation } from "react-router-dom";
 import {
   Menu as MenuIcon,
   Construction,
@@ -27,10 +27,7 @@ import logo from "../assets/logo_for_nav.png";
 const NavBar = () => {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   const menuItems = [
     { text: "Home", icon: <Home />, route: "/" },
@@ -39,15 +36,34 @@ const NavBar = () => {
     { text: "Contact Us", icon: <ContactPage />, route: "/contact-us" },
   ];
 
-  const logoImageStyle = () => {
-    return {
-      width: 160,
-
-      opacity: 1,
-      // opacity: 0,
-      // animation: "fadeIn 200ms ease-in 2400ms forwards",
-      display: { xs: "none", sm: "inherit" },
-    };
+  const MobileNavButton = () => {
+    return (
+      <IconButton
+        disableRipple
+        onClick={toggleMenu}
+        sx={{
+          m: 1,
+          p: 1,
+          display: { xs: "flex", md: "none" },
+          position: "absolute",
+          right: 0,
+        }}
+      >
+        <MenuIcon sx={{ fontSize: 32 }} />
+        <Drawer anchor="right" open={menuOpen} onClose={toggleMenu}>
+          <List sx={{ width: 200 }}>
+            {menuItems.map((item) => (
+              <ListItem key={item.text} disablePadding>
+                <ListItemButton component={RouterLink} to={item.route}>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.text} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+      </IconButton>
+    );
   };
 
   const NavTop = () => {
@@ -140,88 +156,68 @@ const NavBar = () => {
     );
   };
 
-  const MobileNavButton = () => {
-    return (
-      <IconButton
-        disableRipple
-        onClick={toggleMenu}
-        sx={{
-          m: 1,
-          p: 1,
-          display: { xs: "flex", md: "none" },
-          position: "absolute",
-          right: 0,
-        }}
-      >
-        <MenuIcon sx={{ fontSize: 32 }} />
-        <Drawer anchor="right" open={menuOpen} onClose={toggleMenu}>
-          <List sx={{ width: 200 }}>
-            {menuItems.map((item) => (
-              <ListItem key={item.text} disablePadding>
-                <ListItemButton component={RouterLink} to={item.route}>
-                  <ListItemIcon>{item.icon}</ListItemIcon>
-                  <ListItemText primary={item.text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-        </Drawer>
-      </IconButton>
-    );
-  };
+  const NavBottom = () => (
+    <Toolbar
+      sx={{
+        position: "sticky",
+        top: 90,
+        zIndex: 10,
+        bgcolor: "#0e2132",
+        height: 120,
 
-  return (
-    <>
-      <NavTop />
-      <Toolbar
-        sx={{
-          position: "sticky",
-          top: 90,
-          zIndex: 10,
-          bgcolor: "#0e2132",
-          height: 120,
-
-          boxShadow: "0em 0em 4em 0em #1d3243",
-        }}
-      >
-        <MobileNavButton />
+        boxShadow: "0em 0em 4em 0em #1d3243",
+      }}
+    >
+      <MobileNavButton />
+      <Link to="/">
         <Box
           component="img"
           src={logo}
           alt="FullardBoatsCo logo"
-          sx={logoImageStyle}
-        />
-        {/* Menu items */}
-        <Box
-          component="nav"
           sx={{
-            display: { xs: "none", md: "flex" },
-            margin: "auto",
-            gap: 8,
+            width: 160,
+            display: { xs: "none", sm: "inherit" },
           }}
-        >
-          {menuItems.map((item) => (
-            <IconButton
-              disableRipple
-              key={item.text}
-              component={RouterLink}
-              to={item.route}
-              sx={{
-                fontWeight: location.pathname === item.route ? 600 : 500,
-                fontSize: 20,
-                borderRadius: 1,
-                "&:hover": {
-                  color: "#FF6B6B",
-                },
-                color: location.pathname === item.route ? "#FF6B6B" : "inherit",
-                textUnderlineOffset: 8,
-              }}
-            >
-              {item.text}
-            </IconButton>
-          ))}
-        </Box>
-      </Toolbar>
+        ></Box>
+      </Link>
+      {/* Menu items */}
+      <Box
+        component="nav"
+        sx={{
+
+          display: { xs: "none", md: "flex" },
+          margin: "auto",
+          gap: 8,
+        }}
+      >
+        {menuItems.map((item) => (
+          <IconButton
+            disableRipple
+            key={item.text}
+            component={RouterLink}
+            to={item.route}
+            sx={{
+              fontWeight: location.pathname === item.route ? 600 : 500,
+              fontSize: 20,
+              borderRadius: 1,
+              "&:hover": {
+                color: "#FF6B6B",
+              },
+              color: location.pathname === item.route ? "#FF6B6B" : "inherit",
+              textUnderlineOffset: 8,
+            }}
+          >
+            {item.text}
+          </IconButton>
+        ))}
+      </Box>
+    </Toolbar>
+  );
+
+  return (
+    <>
+      <NavTop />
+      <NavBottom />
     </>
   );
 };
