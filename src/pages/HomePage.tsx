@@ -13,14 +13,13 @@ const HomePage = () => {
     return {
       p: {
         xs: 2,
-        sm: 8,
+        sm: 4,
         md: 12,
       },
-
       pt: {
-        xs: 0,
-        sm: 0,
-        md: 16,
+        xs: 12,
+        sm: 32,
+        md: 40,
       },
     };
   };
@@ -32,7 +31,6 @@ const HomePage = () => {
           position: "absolute",
           zIndex: -9,
           width: "100%",
-          minHeight: "90vh",
         }}
       >
         <Box
@@ -44,6 +42,8 @@ const HomePage = () => {
             width: "100%",
             bottom: 0,
             zIndex: -9,
+            mb: -1,
+            px: 0,
           }}
         />
         <Box
@@ -78,12 +78,24 @@ const HomePage = () => {
   const OurServicesButton = () => (
     <Button
       sx={{
-        fontSize: 24,
-        ml: 12,
-        mt: -12,
-        px: 5,
-        py: 1.5,
-        borderRadius: 3,
+        fontSize: {
+          xs: 16,
+          sm: 16,
+          md: 20,
+        },
+        ml: {
+          xs: 2,
+          sm: 4,
+          md: 12,
+        },
+        mt: {
+          xs: 0,
+          sm: -2,
+          md: -12,
+        },
+        px: 2,
+        py: 1,
+        borderRadius: 2,
         fontWeight: 600,
         bgcolor: "#ff6b6a",
         opacity: 0,
@@ -118,7 +130,14 @@ const HomePage = () => {
         <Box sx={tagContainerStyle}>
           {tagLines.map((tagLine, key) => {
             return (
-              <Typography variant="h1" key={key} sx={{ ...tagAnimations(key) }}>
+              <Typography
+                variant="h1"
+                key={key}
+                sx={{
+                  ...tagAnimations(key),
+                  fontSize: { xs: 40, sm: 64, md: 96 },
+                }}
+              >
                 {tagLine}
               </Typography>
             );
@@ -131,9 +150,9 @@ const HomePage = () => {
 
   return (
     <>
+      <NavBar />
       <Box sx={{ minHeight: "100vh" }}>
         <HeroImage source={homeBg} />
-        <NavBar />
         <TagLines />
       </Box>
       <AboutUsPage />

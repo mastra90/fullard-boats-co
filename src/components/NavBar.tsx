@@ -11,6 +11,7 @@ import {
   Phone,
 } from "@mui/icons-material";
 import {
+  AppBar,
   Box,
   Drawer,
   IconButton,
@@ -23,6 +24,7 @@ import {
   Typography,
 } from "@mui/material";
 import logo from "../assets/logo_for_nav.png";
+import theme from "../theme";
 
 const NavBar = () => {
   const location = useLocation();
@@ -82,12 +84,7 @@ const NavBar = () => {
       ];
 
       return (
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "left",
-          }}
-        >
+        <Box>
           {socialLinks.map((social) => (
             <IconButton
               key={social.key}
@@ -112,12 +109,7 @@ const NavBar = () => {
 
     const NavPhoneIcon = () => {
       return (
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "left",
-          }}
-        >
+        <Box>
           <IconButton
             component="a"
             href="tel:0434819553"
@@ -143,11 +135,10 @@ const NavBar = () => {
         disableGutters
         sx={{
           bgcolor: "#0e2132",
-          position: "sticky",
-          top: 0,
           zIndex: 20,
           borderBottom: "1px solid #394d5b",
           height: 90,
+          display: { xs: "none", sm: "inherit" },
         }}
       >
         <SocialButtons />
@@ -159,12 +150,8 @@ const NavBar = () => {
   const NavBottom = () => (
     <Toolbar
       sx={{
-        position: "sticky",
-        top: 90,
-        zIndex: 10,
         bgcolor: "#0e2132",
-        height: 120,
-
+        height: { xs: 80, sm: 120 },
         boxShadow: "0em 0em 4em 0em #1d3243",
       }}
     >
@@ -175,8 +162,7 @@ const NavBar = () => {
           src={logo}
           alt="FullardBoatsCo logo"
           sx={{
-            width: 160,
-            display: { xs: "none", sm: "inherit" },
+            width: { xs: 80, sm: 160 },
           }}
         ></Box>
       </Link>
@@ -184,10 +170,10 @@ const NavBar = () => {
       <Box
         component="nav"
         sx={{
-
           display: { xs: "none", md: "flex" },
           margin: "auto",
           gap: 8,
+          color: theme.palette.text.primary,
         }}
       >
         {menuItems.map((item) => (
@@ -215,10 +201,10 @@ const NavBar = () => {
   );
 
   return (
-    <>
+    <AppBar position="fixed">
       <NavTop />
       <NavBottom />
-    </>
+    </AppBar>
   );
 };
 
