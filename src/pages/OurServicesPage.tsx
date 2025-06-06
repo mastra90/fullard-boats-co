@@ -2,7 +2,6 @@ import { Card, Box, CardContent } from "@mui/material";
 import FaqCard from "../components/our Services/FaqCard";
 import PageHeaders from "../components/PageHeaders";
 import OurServicesCard from "../components/our Services/OurServicesCard";
-import NavBar from "../components/NavBar";
 
 const cards = [
   {
@@ -16,10 +15,8 @@ const cards = [
 ];
 
 const OurServicesPage = () => {
-  const isHomePage = location.pathname === "/";
   return (
     <>
-      {!isHomePage && <NavBar />}
       <PageHeaders
         title="Hands-On Expertise:"
         subtitle="Where Our Services Exceed Your Aspirations."
