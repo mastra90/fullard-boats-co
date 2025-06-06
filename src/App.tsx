@@ -3,10 +3,12 @@ import HomePage from "./pages/HomePage";
 import AboutUsPage from "./pages/AboutUsPage";
 import OurServicesPage from "./pages/OurServicesPage";
 import ContactPage from "./pages/ContactUsPage";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <>
+      <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about-us" element={<AboutUsPage />} />

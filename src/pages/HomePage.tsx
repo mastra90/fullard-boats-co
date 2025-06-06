@@ -2,27 +2,11 @@ import { Box, Button, Typography } from "@mui/material";
 import homeBg from "../assets/homebg.png";
 import waves from "../assets/waves2.svg";
 import { Link } from "react-router-dom";
-import NavBar from "../components/NavBar";
 import AboutUsPage from "./AboutUsPage";
 import OurServicesPage from "./OurServicesPage";
 
 const HomePage = () => {
   const tagLines = ["Modern,", "Traditional,", "Boat Building."];
-
-  const tagContainerStyle = () => {
-    return {
-      p: {
-        xs: 2,
-        sm: 4,
-        md: 12,
-      },
-      pt: {
-        xs: 12,
-        sm: 32,
-        md: 40,
-      },
-    };
-  };
 
   const HeroImage = ({ source }) => {
     return (
@@ -50,6 +34,7 @@ const HomePage = () => {
           sx={{
             position: "relative",
             height: "98vh",
+            maxHeight: { xs: "50vh", sm: "50vh", md: "80vh" },
             backgroundImage: `url(${source})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -127,7 +112,16 @@ const HomePage = () => {
   const TagLines = () => (
     <>
       {tagLines && (
-        <Box sx={tagContainerStyle}>
+        <Box
+          sx={{
+            p: {
+              xs: 2,
+              sm: 4,
+              md: 12,
+            },
+            pt: 0,
+          }}
+        >
           {tagLines.map((tagLine, key) => {
             return (
               <Typography
@@ -149,15 +143,14 @@ const HomePage = () => {
   );
 
   return (
-    <>
-      <NavBar />
-      <Box sx={{ minHeight: "100vh" }}>
+    <Box>
+      <Box sx={{ minHeight: { xs: "60vh", sm: "60vh", md: "85vh" } }}>
         <HeroImage source={homeBg} />
         <TagLines />
       </Box>
       <AboutUsPage />
       <OurServicesPage />
-    </>
+    </Box>
   );
 };
 

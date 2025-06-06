@@ -156,23 +156,25 @@ const NavBar = () => {
       }}
     >
       <MobileNavButton />
-      <Link to="/">
-        <Box
-          component="img"
-          src={logo}
-          alt="FullardBoatsCo logo"
-          sx={{
-            width: { xs: 80, sm: 160 },
-          }}
-        ></Box>
-      </Link>
+      <Box sx={{ position: "fixed" }}>
+        <Link to="/">
+          <Box
+            component="img"
+            src={logo}
+            alt="FullardBoatsCo logo"
+            sx={{
+              width: { xs: 80, sm: 160 },
+            }}
+          />
+        </Link>
+      </Box>
       {/* Menu items */}
       <Box
         component="nav"
         sx={{
           display: { xs: "none", md: "flex" },
           margin: "auto",
-          gap: 8,
+          gap: 4,
           color: theme.palette.text.primary,
         }}
       >
@@ -201,7 +203,7 @@ const NavBar = () => {
   );
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="sticky" sx={{ top: 0 }}>
       <NavTop />
       <NavBottom />
     </AppBar>
