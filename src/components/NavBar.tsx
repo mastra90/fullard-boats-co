@@ -153,10 +153,13 @@ const NavBar = () => {
         bgcolor: "#0e2132",
         height: { xs: 80, sm: 120 },
         boxShadow: "0em 0em 4em 0em #1d3243",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
       }}
     >
       <MobileNavButton />
-      <Box sx={{ position: "fixed" }}>
+      <Box>
         <Link to="/">
           <Box
             component="img"
@@ -173,7 +176,9 @@ const NavBar = () => {
         component="nav"
         sx={{
           display: { xs: "none", md: "flex" },
-          margin: "auto",
+          position: "absolute",
+          left: "50%",
+          transform: "translateX(-50%)",
           gap: 4,
           color: theme.palette.text.primary,
         }}

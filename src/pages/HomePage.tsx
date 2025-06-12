@@ -2,8 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import homeBg from "../assets/homebg.png";
 import waves from "../assets/waves2.svg";
 import { Link } from "react-router-dom";
-import AboutUsPage from "./AboutUsPage";
-import OurServicesPage from "./OurServicesPage";
+import OurServicesCards from "../components/our Services/OurServicesCards";
 
 const HomePage = () => {
   const tagLines = ["Modern,", "Traditional,", "Boat Building."];
@@ -148,8 +147,7 @@ const HomePage = () => {
         <HeroImage source={homeBg} />
         <TagLines />
       </Box>
-      <AboutUsPage />
-      <OurServicesPage />
+      <OurServicesCards />
     </Box>
   );
 };

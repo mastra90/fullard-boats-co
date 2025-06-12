@@ -55,7 +55,7 @@ const theme = createTheme({
     },
     MuiCard: {
       styleOverrides: {
-        root: { borderRadius: 8 },
+        root: { borderRadius: 8, backgroundColor: "#0e2132" },
       },
     },
     MuiToolbar: {
