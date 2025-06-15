@@ -14,20 +14,17 @@ declare module "@mui/material/styles" {
 }
 
 const palette = {
-  primary: {
-    main: "#f2f2f2",
-  },
   background: {
     default: "#0e2132",
-    nav: "#343C42",
-    paper: "#0b0c0d",
+    secondary: "#061828",
+    buttons: "#ff6b6b",
   },
   text: {
-    primary: "#f2f2f2",
+    primary: "#fef6ef",
     dark: "#0b0c0d",
     blue: "#90CAF3", // Will's color
     green: "#77e7c0", // Kelly's color
-    pink: "#EF86C9", // Aiden's color
+    pink: "#ef86c9", // Aiden's color
   },
 };
 
@@ -50,12 +47,12 @@ const theme = createTheme({
   components: {
     MuiIconButton: {
       styleOverrides: {
-        root: { color: palette.primary.main },
+        root: { color: palette.background.buttons },
       },
     },
     MuiCard: {
       styleOverrides: {
-        root: { borderRadius: 8, backgroundColor: "#0e2132" },
+        root: { borderRadius: 8, backgroundColor: palette.background.default },
       },
     },
     MuiToolbar: {
@@ -69,14 +66,14 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           textDecoration: "none",
-          color: palette.primary.main,
+          color: palette.text.primary,
         },
       },
     },
     MuiListItemIcon: {
       styleOverrides: {
         root: {
-          color: palette.primary.main,
+          color: palette.text.primary,
         },
       },
     },

@@ -1,8 +1,10 @@
 import { Box, Button, Typography } from "@mui/material";
 import homeBg from "../assets/homebg.png";
-import waves from "../assets/waves2.svg";
+import waves from "../assets/waves_hero.svg";
 import { Link } from "react-router-dom";
 import OurServicesCards from "../components/our Services/OurServicesCards";
+import ReviewsCards from "../components/our Services/ReviewsCards";
+import theme from "../theme";
 
 const HomePage = () => {
   const tagLines = ["Modern,", "Traditional,", "Boat Building."];
@@ -95,12 +97,15 @@ const HomePage = () => {
           },
         },
         "&:hover": {
-          bgcolor: "#f2f2f2",
+          bgcolor: "#FEF6EF",
         },
       }}
     >
       <Link
-        style={{ textDecoration: "none", color: "#0e2132" }}
+        style={{
+          textDecoration: "none",
+          color: theme.palette.background.default,
+        }}
         to={"/our-services"}
       >
         Our Services
@@ -148,6 +153,7 @@ const HomePage = () => {
         <TagLines />
       </Box>
       <OurServicesCards />
+      <ReviewsCards />
     </Box>
   );
 };

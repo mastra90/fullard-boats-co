@@ -23,7 +23,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import logo from "../assets/logo_for_nav.png";
+import logo from "../assets/logo.png";
 import theme from "../theme";
 
 const NavBar = () => {
@@ -116,7 +116,7 @@ const NavBar = () => {
             disableRipple
             sx={{
               mr: 2,
-              color: "#f2f2f2",
+              color: "#FEF6EF",
               transition: "color 250ms ease",
               "&:hover": {
                 color: "#FF6B6B",
@@ -134,7 +134,7 @@ const NavBar = () => {
       <Toolbar
         disableGutters
         sx={{
-          bgcolor: "#0e2132",
+          bgcolor: theme.palette.background.default,
           zIndex: 20,
           borderBottom: "1px solid #394d5b",
           height: 90,
@@ -150,7 +150,7 @@ const NavBar = () => {
   const NavBottom = () => (
     <Toolbar
       sx={{
-        bgcolor: "#0e2132",
+        bgcolor: theme.palette.background.default,
         height: { xs: 80, sm: 120 },
         boxShadow: "0em 0em 4em 0em #1d3243",
         display: "flex",
@@ -166,7 +166,7 @@ const NavBar = () => {
             src={logo}
             alt="FullardBoatsCo logo"
             sx={{
-              width: { xs: 80, sm: 160 },
+              width: { xs: 80, sm: 110 }
             }}
           />
         </Link>
